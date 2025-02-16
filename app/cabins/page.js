@@ -1,7 +1,9 @@
 export default function Page() {
     return (
-        <h1>
-           cabins page
-        </h1>
+        <div>
+            <h1>
+                Cabins page
+            </h1>
+        </div>
     );
 }
