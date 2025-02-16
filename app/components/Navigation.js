@@ -13,7 +13,7 @@ export default function Navigation() {
                 <Link href={"/about"}>About us</Link>
             </li>
             <li>
-                <Link href={"/cabins"}>Your account</Link>
+                <Link href={"/account"}>Your account</Link>
             </li>
         </ul>
     );
