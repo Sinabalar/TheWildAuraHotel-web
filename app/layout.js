@@ -1,5 +1,6 @@
-import Navigation from "@/app/components/Navigation";
-import Logo from "@/app/components/Logo";
+import Navigation from "@/app/_components/Navigation";
+import Logo from "@/app/_components/Logo";
+import "@/app/_styles/globals.css"
 
 
 export const metadata = {
@@ -10,7 +11,7 @@ export default function RootLayout({children}) {
     return (
 
         <html lang={"en"}>
-        <body>
+        <body className={"bg-primary-950 text-primary-100"}>
         <header>
             <Logo/>
             <Navigation/>
