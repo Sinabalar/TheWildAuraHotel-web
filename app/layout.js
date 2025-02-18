@@ -4,7 +4,11 @@ import "@/app/_styles/globals.css"
 
 
 export const metadata = {
-    title: "The Wild Aura Hotel",
+    title: {
+        template: "%s | The Wild Aura Hotel",
+        default: "Welcome | The Wild Aura Hotel"
+    },
+    description: "Luxurious cabin Hotel located in the heart of nature surrounded by beautiful mountains and dark Foresters."
 }
 
 export default function RootLayout({children}) {
