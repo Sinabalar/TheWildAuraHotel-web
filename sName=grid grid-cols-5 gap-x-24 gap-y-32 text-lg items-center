@@ -1,0 +1,204 @@
+warning: in the working copy of 'app/layout.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'app/page.js', LF will be replaced by CRLF the next time Git touches it
+[1mdiff --git a/app/about/page.js b/app/about/page.js[m
+[1mindex 8db18f3..09e7412 100644[m
+[1m--- a/app/about/page.js[m
+[1m+++ b/app/about/page.js[m
+[36m@@ -1,3 +1,7 @@[m
+[32m+[m[32mimport image1 from "@/public/about-1.jpg"[m
+[32m+[m[32mimport image2 from "@/public/about-2.jpg"[m
+[32m+[m[32mimport Image from "next/image";[m
+[32m+[m
+ export const metadata = {[m
+     title: "About"[m
+ }[m
+[36m@@ -5,8 +9,87 @@[m [mexport const metadata = {[m
+ [m
+ export default function Page() {[m
+     return ([m
+[31m-        <h1>[m
+[31m-            About The Wild Aura Hotel[m
+[31m-        </h1>[m
+[32m+[m[32m        <div className="grid grid-cols-5 gap-x-24 gap-y-32 text-lg items-center">[m
+[32m+[m[32m            <div className="col-span-3">[m
+[32m+[m[32m                <h1 className="text-4xl mb-10 text-accent-400 font-medium">[m
+[32m+[m[32m                    Welcome to The Wild Oasis[m
+[32m+[m[32m                </h1>[m
+[32m+[m
+[32m+[m[32m                <div className="space-y-8">[m
+[32m+[m[32m                    <p>[m
+[32m+[m[32m                        Where nature&#39;s beauty and comfortable living blend seamlessly.[m
+[32m+[m[32m                        Hidden away in the heart of the Italian Dolomites, this is your[m
+[32m+[m[32m                        paradise away from home. But it&#39;s not just about the luxury cabins.[m
+[32m+[m[32m                        It&#39;s about the experience of reconnecting with nature and enjoying[m
+[32m+[m[32m                        simple pleasures with family.[m
+[32m+[m[32m                    </p>[m
+[32m+[m[32m                    <p>[m
+[32m+[m[32m                        Our 8 luxury cabins provide a cozy base, but the real freedom and[m
+[32m+[m[32m                        peace you&#39;ll find in the surrounding mountains. Wander through lush[m
+[32m+[m[32m                        forests, breathe in the fresh air, and watch the stars twinkle above[m
+[32m+[m[32m                        from the warmth of a campfire or your hot tub.[m
+[32m+[m[32m                    </p>[m
+[32m+[m[32m                    <p>[m
+[32m+[m[32m                        This is where memorable moments are made, surrounded by nature&#39;s[m
+[32m+[m[32m                        splendor. It&#39;s a place to slow down, relax, and feel the joy of[m
+[32m+[m[32m                        being together in a beautiful setting.[m
+[32m+[m[32m                    </p>[m
+[32m+[m[32m                </div>[m
+[32m+[m[32m            </div>[m
+[32m+[m
+[32m+[m[32m            <div className="col-span-2 relative aspect-square">[m
+[32m+[m[32m                <Image[m
+[32m+[m[32m                    src={image1}[m
+[32m+[m[32m                    fill[m
+[32m+[m[32m                    alt="Family sitting around a fire pit in front of cabin"[m
+[32m+[m[32m                    className={"object-cover"}[m
+[32m+[m[32m                    placeholder={"blur"}[m
+[32m+[m[32m                    quality={80}[m
+[32m+[m[32m                />[m
+[32m+[m[32m            </div>[m
+[32m+[m
+[32m+[m[32m            <div className="col-span-2 relative aspect-square">[m
+[32m+[m[32m                <Image[m
+[32m+[m[32m                    src={image2}[m
+[32m+[m[32m                    fill[m
+[32m+[m[32m                    alt="Family that manages The Wild Oasis"[m
+[32m+[m[32m                    className={"object-cover"}[m
+[32m+[m[32m                    placeholder={"blur"}[m
+[32m+[m[32m                    quality={80}[m
+[32m+[m[32m                />[m
+[32m+[m[32m            </div>[m
+[32m+[m
+[32m+[m[32m            <div className="col-span-3">[m
+[32m+[m[32m                <h1 className="text-4xl mb-10 text-accent-400 font-medium">[m
+[32m+[m[32m                    Managed by our family since 1962[m
+[32m+[m[32m                </h1>[m
+[32m+[m
+[32m+[m[32m                <div className="space-y-8">[m
+[32m+[m[32m                    <p>[m
+[32m+[m[32m                        Since 1962, The Wild Oasis has been a cherished family-run retreat.[m
+[32m+[m[32m                        Started by our grandparents, this haven has been nurtured with love[m
+[32m+[m[32m                        and care, passing down through our family as a testament to our[m
+[32m+[m[32m                        dedication to creating a warm, welcoming environment.[m
+[32m+[m[32m                    </p>[m
+[32m+[m[32m                    <p>[m
+[32m+[m[32m                        Over the years, we&#39;ve maintained the essence of The Wild Oasis,[m
+[32m+[m[32m                        blending the timeless beauty of the mountains with the personal[m
+[32m+[m[32m                        touch only a family business can offer. Here, you&#39;re not just a[m
+[32m+[m[32m                        guest; you&#39;re part of our extended family. So join us at The Wild[m
+[32m+[m[32m                        Oasis soon, where tradition meets tranquility, and every visit is[m
+[32m+[m[32m                        like coming home.[m
+[32m+[m[32m                    </p>[m
+[32m+[m
+[32m+[m[32m                    <div>[m
+[32m+[m[32m                        <a[m
+[32m+[m[32m                            href="/cabins"[m
+[32m+[m[32m                            className="inline-block mt-4 bg-accent-500 px-8 py-5 text-primary-800 text-lg font-semibold hover:bg-accent-600 transition-all"[m
+[32m+[m[32m                        >[m
+[32m+[m[32m                            Explore our luxury cabins[m
+[32m+[m[32m                        </a>[m
+[32m+[m[32m                    </div>[m
+[32m+[m[32m                </div>[m
+[32m+[m[32m            </div>[m
+[32m+[m[32m        </div>[m
+     );[m
+[31m-}[m
+\ No newline at end of file[m
+[32m+[m[32m}[m
+[1mdiff --git a/app/cabins/page.js b/app/cabins/page.js[m
+[1mindex f234071..02d282a 100644[m
+[1m--- a/app/cabins/page.js[m
+[1m+++ b/app/cabins/page.js[m
+[36m@@ -1,3 +1,4 @@[m
+[32m+[m[32mimport CabinCard from "@/app/_components/CabinCard";[m
+ [m
+ [m
+ export const metadata={[m
+[36m@@ -5,11 +6,30 @@[m [mexport const metadata={[m
+ }[m
+ [m
+ export default function Page() {[m
+[32m+[m[32m    // CHANGE[m
+[32m+[m[32m    const cabins = [];[m
+[32m+[m
+     return ([m
+         <div>[m
+[31m-            <h1>[m
+[31m-                Cabins page[m
+[32m+[m[32m            <h1 className="text-4xl mb-5 text-accent-400 font-medium">[m
+[32m+[m[32m                Our Luxury Cabins[m
+             </h1>[m
+[32m+[m[32m            <p className="text-primary-200 text-lg mb-10">[m
+[32m+[m[32m                Cozy yet luxurious cabins, located right in the heart of the Italian[m
+[32m+[m[32m                Dolomites. Imagine waking up to beautiful mountain views, spending your[m
+[32m+[m[32m                days exploring the dark forests around, or just relaxing in your private[m
+[32m+[m[32m                hot tub under the stars. Enjoy nature&#39;s beauty in your own little home[m
+[32m+[m[32m                away from home. The perfect spot for a peaceful, calm vacation. Welcome[m
+[32m+[m[32m                to paradise.[m
+[32m+[m[32m            </p>[m
+[32m+[m
+[32m+[m[32m            {cabins.length > 0 && ([m
+[32m+[m[32m                <div className="grid sm:grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 xl:gap-14">[m
+[32m+[m[32m                    {cabins.map((cabin) => ([m
+[32m+[m[32m                        <CabinCard cabin={cabin} key={cabin.id} />[m
+[32m+[m[32m                    ))}[m
+[32m+[m[32m                </div>[m
+[32m+[m[32m            )}[m
+         </div>[m
+     );[m
+ }[m
+\ No newline at end of file[m
+[1mdiff --git a/app/layout.js b/app/layout.js[m
+[1mindex 046b649..ed1c3b2 100644[m
+[1m--- a/app/layout.js[m
+[1m+++ b/app/layout.js[m
+[36m@@ -21,7 +21,9 @@[m [mexport default function RootLayout({children}) {[m
+     return ([m
+ [m
+         <html lang={"en"}>[m
+[31m-        <body className={`${josefin.className} bg-primary-950 text-primary-100 flex flex-col min-h-screen antialiased`}>[m
+[32m+[m[32m        <body[m
+[32m+[m[32m            className={`${josefin.className} bg-primary-950 text-primary-100 flex flex-col min-h-screen antialiased relative`}[m
+[32m+[m[32m        >[m
+         <Header/>[m
+         <div className={"flex-1 px-8 py-12"}>[m
+             <main className={" max-w-7xl mx-auto"}>[m
+[1mdiff --git a/app/page.js b/app/page.js[m
+[1mindex 1b8f1a0..0dfcd55 100644[m
+[1m--- a/app/page.js[m
+[1m+++ b/app/page.js[m
+[36m@@ -1,7 +1,32 @@[m
+[32m+[m[32mimport Link from "next/link";[m
+[32m+[m[32mimport Image from "next/image";[m
+[32m+[m[32mimport bg from "@/public/bg.png"[m
+[32m+[m
+ export default function Page() {[m
+     return ([m
+         <div>[m
+[31m-            <h1>Wild Aura. Welcome to the paradise</h1>[m
+[32m+[m[32m            <main className="mt-24">[m
+[32m+[m[32m                <Image[m
+[32m+[m[32m                    src={bg}[m
+[32m+[m[32m                    fill[m
+[32m+[m[32m                    quality={80}[m
+[32m+[m[32m                    className={"object-cover object-top"}[m
+[32m+[m[32m                    alt="Mountains and forests with two cabins"[m
+[32m+[m[32m                    placeholder={"blur"}[m
+[32m+[m[32m                />[m
+[32m+[m
+[32m+[m[32m                <div className="relative z-10 text-center">[m
+[32m+[m[32m                    <h1 className="text-8xl text-primary-50 mb-10 tracking-tight font-normal">[m
+[32m+[m[32m                        Welcome to paradise.[m
+[32m+[m[32m                    </h1>[m
+[32m+[m[32m                    <Link[m
+[32m+[m[32m                        href={"/cabins"}[m
+[32m+[m[32m                        className="bg-accent-500 px-8 py-6 text-primary-800 text-lg font-semibold hover:bg-accent-600 transition-all"[m
+[32m+[m[32m                    >[m
+[32m+[m[32m                        Explore luxury cabins[m
+[32m+[m[32m                    </Link>[m
+[32m+[m[32m                </div>[m
+[32m+[m[32m            </main>[m
+         </div>[m
+     );[m
+ }[m
+\ No newline at end of file[m
