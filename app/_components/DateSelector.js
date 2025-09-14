@@ -29,7 +29,7 @@ function DateSelector({settings, cabins, bookedDates}) {
     const {minBookingLength, maxBookingLength} = settings
 
     return (
-        <div className="flex flex-col justify-between">
+        <div className="flex flex-col justify-between w-full">
             <DayPicker
                 className="py-12 place-self-center"
                 styles={{
