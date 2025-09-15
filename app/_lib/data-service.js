@@ -183,19 +183,15 @@ export async function createBooking(newBooking) {
 // UPDATE
 
 // The updatedFields is an object which should ONLY contain the updated data
-export async function updateGuest(id, updatedFields) {
-    const {data, error} = await supabase
+export async function updateGuestData(id, updatedFields) {
+    const { error} = await supabase
         .from('guests')
         .update(updatedFields)
         .eq('id', id)
-        .select()
-        .single();
 
     if (error) {
-        console.error(error);
         throw new Error('Guest could not be updated');
     }
-    return data;
 }
 
 export async function updateBooking(id, updatedFields) {
