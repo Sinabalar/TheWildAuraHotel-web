@@ -1,7 +1,7 @@
 "use server";
 
 import {auth, signIn, signOut} from "@/app/_lib/auth";
-import {updateGuestData} from "@/app/_lib/data-service";
+import {deleteBooking, getBookings, updateGuestData} from "@/app/_lib/data-service";
 import {revalidatePath} from "next/cache";
 
 export async function updateProfile(formData) {
@@ -38,4 +38,22 @@ export async function signOutAction() {
             redirectTo: "/"
         }
     )
+}
+
+export async function deleteReservation(bookingId) {
+
+    const session = auth()
+    if (!session) throw new Error("You must logged in");
+
+    const guestBookings = await getBookings(session?.user?.guestId);
+    const guestBookingsIds = guestBookings.map(
+        booking => booking.id
+    );
+    if (!guestBookingsIds.includes(bookingId)) {
+        throw new Error("You are not allowed to delete this booking");
+    }
+
+    await deleteBooking(bookingId);
+    revalidatePath("/account/reservations");
+
 }

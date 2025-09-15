@@ -184,7 +184,7 @@ export async function createBooking(newBooking) {
 
 // The updatedFields is an object which should ONLY contain the updated data
 export async function updateGuestData(id, updatedFields) {
-    const { error} = await supabase
+    const {error} = await supabase
         .from('guests')
         .update(updatedFields)
         .eq('id', id)
@@ -213,11 +213,8 @@ export async function updateBooking(id, updatedFields) {
 // DELETE
 
 export async function deleteBooking(id) {
-    const {data, error} = await supabase.from('bookings').delete().eq('id', id);
+    const {error} = await supabase.from('bookings').delete().eq('id', id);
 
-    if (error) {
-        console.error(error);
+    if (error)
         throw new Error('Booking could not be deleted');
-    }
-    return data;
 }
