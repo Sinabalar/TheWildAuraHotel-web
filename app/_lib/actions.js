@@ -1,8 +1,9 @@
 "use server";
 
 import {auth, signIn, signOut} from "@/app/_lib/auth";
-import {deleteBooking, getBookings, updateGuestData} from "@/app/_lib/data-service";
+import {deleteBooking, getBookings, updateBooking, updateGuestData} from "@/app/_lib/data-service";
 import {revalidatePath} from "next/cache";
+import {redirect} from "next/navigation";
 
 export async function updateProfile(formData) {
     const session = await auth()
@@ -42,7 +43,7 @@ export async function signOutAction() {
 
 export async function deleteReservation(bookingId) {
 
-    const session = auth()
+    const session = await auth()
     if (!session) throw new Error("You must logged in");
 
     const guestBookings = await getBookings(session?.user?.guestId);
@@ -55,5 +56,32 @@ export async function deleteReservation(bookingId) {
 
     await deleteBooking(bookingId);
     revalidatePath("/account/reservations");
+
+}
+
+export async function editReservation(formData) {
+
+    const reservationID = Number(formData.get("reservationID"));
+    const updatedFields = {
+        numGuests: Number(formData.get("numGuests")),
+        observations: formData.get("observations").slice(0, 1000)
+    };
+
+    const session = await auth();
+    if (!session) throw new Error("You must logged in");
+
+    const guestBookings = await getBookings(session?.user?.guestId);
+    const guestBookingsIds = guestBookings.map(
+        booking => booking.id
+    );
+    if (!guestBookingsIds.includes(reservationID)) {
+        throw new Error("You are not allowed to edit this booking");
+    }
+
+    await updateBooking(reservationID, updatedFields);
+    revalidatePath(`/account/reservations/edit/${reservationID}`);
+    redirect("/account/reservations");
+    revalidatePath("/account/reservations");
+
 
 }
