@@ -1,9 +1,29 @@
 "use server";
 
 import {auth, signIn, signOut} from "@/app/_lib/auth";
-import {deleteBooking, getBookings, updateBooking, updateGuestData} from "@/app/_lib/data-service";
+import {createBooking, deleteBooking, getBookings, updateBooking, updateGuestData} from "@/app/_lib/data-service";
 import {revalidatePath} from "next/cache";
 import {redirect} from "next/navigation";
+
+export async function CreateBooking(bookingData, formData) {
+    const session = await auth()
+    if (!session) throw new Error("You must logged in");
+
+    const newBookingData = {
+        ...bookingData,
+        guestID: session?.user?.guestId,
+        numGuests: Number(formData.get("numGuests")),
+        observations: formData.get("observations").slice(0, 1000),
+        extrasPrice: 0,
+        totalPrice: bookingData.cabinPrice,
+        status: "unconfirmed",
+        hasBreakfast: false,
+        isPaid: false,
+
+    }
+
+    await createBooking(newBookingData);
+}
 
 export async function updateProfile(formData) {
     const session = await auth()
@@ -41,7 +61,7 @@ export async function signOutAction() {
     )
 }
 
-export async function deleteReservation(bookingId) {
+export async function removeBooking(bookingId) {
 
     const session = await auth()
     if (!session) throw new Error("You must logged in");
@@ -59,7 +79,7 @@ export async function deleteReservation(bookingId) {
 
 }
 
-export async function editReservation(formData) {
+export async function editBooking(formData) {
 
     const reservationID = Number(formData.get("reservationID"));
     const updatedFields = {

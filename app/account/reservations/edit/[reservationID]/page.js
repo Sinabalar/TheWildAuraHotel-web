@@ -1,5 +1,5 @@
 import {getBooking, getCabin} from "@/app/_lib/data-service";
-import {editReservation} from "@/app/_lib/actions";
+import {editBooking} from "@/app/_lib/actions";
 import SubmitBtn from "@/app/_components/SubmitBtn";
 
 export default async function Page({params}) {
@@ -17,7 +17,7 @@ export default async function Page({params}) {
             </h2>
 
             <form
-                action={editReservation}
+                action={editBooking}
                 className="bg-primary-900 py-8 px-12 text-lg flex gap-6 flex-col">
                 <div className="space-y-2">
                     <label htmlFor="numGuests">How many guests?</label>
